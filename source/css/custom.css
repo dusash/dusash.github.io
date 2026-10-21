@@ -120,6 +120,26 @@ body:has(.index-card) #banner .banner-text .h2 {
   border-right: none !important;
 }
 
+/* 打字机的光标从文字后面挪走，改到下方滚动箭头那里 */
+#banner .typed-cursor,
+#banner .typed-cursor--blink {
+  display: none !important;
+}
+
+.scroll-down-bar::after {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 2px;
+  background: var(--green);
+  animation: cursor-blink 1.15s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 62%      { opacity: 1; }
+  62.01%, 100% { opacity: 0; }
+}
+
 /* 文章页 banner 文字 */
 #banner .banner-text .h1,
 #banner .banner-text .post-metas,
@@ -132,12 +152,21 @@ body:has(.index-card) #banner .banner-text .h2 {
 }
 
 .scroll-down-bar {
+  position: absolute;
   z-index: 3;
-  opacity: 0.45;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .scroll-down-bar .iconfont {
   color: var(--tx-dim) !important;
+  opacity: 0.5;
+  line-height: 1;
+  font-size: 1rem;
 }
 
 /* ============================================================
@@ -177,6 +206,147 @@ body:has(.index-card) #banner .banner-text .h2 {
 .navbar .nav-link:hover,
 .navbar .nav-link.active {
   color: var(--tx-hi) !important;
+}
+
+/* ============================================================
+   桌面端：导航栏改成左侧竖排，只留图标，中文变成悬停提示
+   ============================================================ */
+@media (min-width: 992px) {
+  #navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    width: 88px;
+    height: 100vh;
+    padding: 1.8rem 0;
+    background: transparent !important;
+    border-right: 1px solid var(--line-soft);
+    border-bottom: none !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: none !important;
+    z-index: 1030;
+  }
+
+  #navbar > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  #navbar .navbar-brand {
+    margin: 0 0 2.6rem;
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  #navbar .navbar-toggler {
+    display: none;
+  }
+
+  #navbar .navbar-collapse {
+    position: absolute;
+    top: 104px;
+    left: 0;
+    right: 0;
+    display: block !important;
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  #navbar .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 0 !important;
+    gap: 0.6rem;
+  }
+
+  #navbar .nav-item {
+    width: 100%;
+    position: relative;
+  }
+
+  #navbar .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7rem 0;
+    position: relative;
+  }
+
+  #navbar .nav-link i {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  /* 中文变浮层提示 */
+  #navbar .nav-link > span {
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-5px);
+    white-space: nowrap;
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    color: var(--tx-hi);
+    background: rgba(8, 10, 11, 0.92);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.26rem 0.6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 20;
+  }
+
+  #navbar .nav-link:hover > span,
+  #navbar .nav-link:focus > span {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  /* 搜索按钮只有图标，提示文字单独补 */
+  #navbar #search-btn .nav-link::after {
+    content: "搜索";
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-5px);
+    white-space: nowrap;
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    color: var(--tx-hi);
+    background: rgba(8, 10, 11, 0.92);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.26rem 0.6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 20;
+  }
+
+  #navbar #search-btn .nav-link:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  /* 内容区让出左侧导航的位置 */
+  main,
+  footer {
+    margin-left: 88px;
+  }
 }
 
 /* ============================================================
