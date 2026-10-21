@@ -120,24 +120,11 @@ body:has(.index-card) #banner .banner-text .h2 {
   border-right: none !important;
 }
 
-/* 打字机的光标从文字后面挪走，改到下方滚动箭头那里 */
+/* 打字机光标留在句末，绿色，跟标题同色 */
 #banner .typed-cursor,
 #banner .typed-cursor--blink {
-  display: none !important;
-}
-
-.scroll-down-bar::after {
-  content: "";
-  display: block;
-  width: 9px;
-  height: 2px;
-  background: var(--green);
-  animation: cursor-blink 1.15s step-end infinite;
-}
-
-@keyframes cursor-blink {
-  0%, 62%      { opacity: 1; }
-  62.01%, 100% { opacity: 0; }
+  color: var(--green);
+  opacity: 1;
 }
 
 /* 文章页 banner 文字 */
@@ -153,20 +140,24 @@ body:has(.index-card) #banner .banner-text .h2 {
 
 .scroll-down-bar {
   position: absolute;
+  left: 116px;
+  right: auto;
+  bottom: 2.2rem;
+  width: auto;
+  height: auto;
   z-index: 3;
   opacity: 1;
+  text-align: left;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 5px;
+  justify-content: flex-start;
 }
 
 .scroll-down-bar .iconfont {
   color: var(--tx-dim) !important;
-  opacity: 0.5;
+  opacity: 0.72;
   line-height: 1;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 /* ============================================================
@@ -540,6 +531,12 @@ footer a:hover {
 @media (max-width: 991px) {
   #banner .hero-video {
     display: none;
+  }
+
+  .scroll-down-bar {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1.4rem;
   }
 
   #banner .mask {
