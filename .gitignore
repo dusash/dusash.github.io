@@ -6,3 +6,6 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+_wallpaper_dump/
+_rec/
+source/img/hero-preview.jpg

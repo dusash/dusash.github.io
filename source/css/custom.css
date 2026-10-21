@@ -1,0 +1,414 @@
+/* ============================================================
+   dusash blog — wallpaper 分支
+   首屏是真实桌面壁纸录制的循环视频，其余部分与画面同调：
+   墨黑底、门框绿做强调、只用细线分隔。
+   ============================================================ */
+
+:root {
+  --ink:       #050607;
+  --panel:     #0a0c0d;
+  --line:      rgba(255, 255, 255, 0.08);
+  --line-soft: rgba(255, 255, 255, 0.045);
+  --tx:        #c6ccd4;
+  --tx-hi:     #eef1f4;
+  --tx-dim:    #767d85;
+  --green:     #4ade80;
+  --green-dim: rgba(74, 222, 128, 0.55);
+  --f-sans: "Inter", system-ui, -apple-system, "Segoe UI", "PingFang SC",
+            "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --f-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------- 隐藏明暗切换 ---------- */
+#color-toggle-btn,
+#mobile-color-toggle-btn {
+  display: none !important;
+}
+
+/* ---------- 基础 ---------- */
+html, body {
+  background: var(--ink) !important;
+  font-family: var(--f-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--tx);
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background: rgba(74, 222, 128, 0.18);
+  color: var(--tx-hi);
+}
+
+/* ============================================================
+   首屏：壁纸视频
+   ============================================================ */
+#banner {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--ink) !important;
+  background-image: url("/img/hero-poster.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+#banner .hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+#banner .hero-video.is-ready {
+  opacity: 1;
+}
+
+#banner .full-bg-img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: none !important;
+}
+
+/* 边缘压暗 + 底部融入页面背景 */
+#banner .mask {
+  position: relative;
+  z-index: 2;
+  background:
+    linear-gradient(180deg,
+      rgba(5, 6, 7, 0.55) 0%,
+      rgba(5, 6, 7, 0) 18%,
+      rgba(5, 6, 7, 0) 58%,
+      rgba(5, 6, 7, 0.72) 90%,
+      var(--ink) 100%),
+    radial-gradient(120% 90% at 50% 40%, transparent 45%, rgba(0, 0, 0, 0.55) 100%) !important;
+}
+
+/* 首页：文字靠右，落在画面本来就是黑的那一半 */
+body:has(.index-card) #banner .mask {
+  justify-content: flex-end !important;
+  padding-right: 8%;
+}
+
+body:has(.index-card) #banner .banner-text {
+  text-align: left !important;
+  max-width: min(42%, 560px);
+  padding: 0 !important;
+}
+
+body:has(.index-card) #banner .banner-text .h2::before {
+  content: "dusash";
+  display: block;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--tx-hi);
+  margin-bottom: 1.1rem;
+}
+
+#banner .banner-text .h2 {
+  font-size: clamp(0.92rem, 1.25vw, 1.1rem);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  color: var(--green);
+}
+
+#subtitle {
+  border-right: none !important;
+}
+
+/* 文章页 banner 文字 */
+#banner .banner-text .h1,
+#banner .banner-text .post-metas,
+#banner .banner-text .post-meta,
+#banner .banner-text .post-meta span,
+#banner .banner-text .post-meta a,
+#banner .banner-text .post-meta i {
+  color: #dde2e8 !important;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.9);
+}
+
+.scroll-down-bar {
+  z-index: 3;
+  opacity: 0.45;
+}
+
+.scroll-down-bar .iconfont {
+  color: var(--tx-dim) !important;
+}
+
+/* ============================================================
+   导航栏
+   ============================================================ */
+.navbar {
+  background: transparent !important;
+  border-bottom: 1px solid transparent;
+  transition: background 0.35s ease, border-color 0.35s ease;
+  box-shadow: none !important;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.navbar.top-nav-collapse,
+.navbar-col-show {
+  background: rgba(5, 6, 7, 0.72) !important;
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  border-bottom: 1px solid var(--line-soft);
+  box-shadow: none !important;
+}
+
+.navbar .navbar-brand {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--tx-hi) !important;
+}
+
+.navbar .nav-link {
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: var(--tx-dim) !important;
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--tx-hi) !important;
+}
+
+/* ============================================================
+   主体与文章列表
+   ============================================================ */
+#board {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding-top: 4rem;
+}
+
+.index-card {
+  background: transparent;
+}
+
+.index-info {
+  padding: 2.6rem 0 !important;
+  border-bottom: 1px solid var(--line);
+}
+
+.index-info:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.index-header {
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  margin-bottom: 0.9rem !important;
+}
+
+.index-header a {
+  color: var(--tx-hi) !important;
+  transition: color 0.22s ease;
+}
+
+.index-header a:hover {
+  color: var(--green) !important;
+  text-decoration: none;
+}
+
+.index-excerpt {
+  color: var(--tx-dim) !important;
+  font-size: 0.94rem;
+  line-height: 1.85;
+  display: block;
+  margin-bottom: 1.1rem !important;
+}
+
+.index-excerpt div {
+  max-height: 4.4em;
+  overflow: hidden;
+}
+
+.index-btm .post-meta {
+  font-family: var(--f-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: #565d66 !important;
+}
+
+.index-btm .post-meta a,
+.index-btm .post-meta span {
+  color: #6a717a !important;
+  transition: color 0.2s ease;
+}
+
+.index-btm .post-meta a:hover {
+  color: var(--green) !important;
+  text-decoration: none;
+}
+
+.index-btm .post-meta .iconfont {
+  font-size: 0.75rem;
+  margin-right: 0.3rem;
+  opacity: 0.6;
+}
+
+/* ============================================================
+   文章正文
+   ============================================================ */
+.post-content, .markdown-body {
+  color: var(--tx);
+  font-size: 1.02rem;
+  line-height: 1.95;
+}
+
+.post-content h1, .post-content h2, .post-content h3,
+.post-content h4, .post-content h5, .post-content h6 {
+  color: var(--tx-hi);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-top: 2.6em;
+  margin-bottom: 1em;
+}
+
+.post-content h2 {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-content a {
+  color: var(--green);
+  border-bottom: 1px solid rgba(74, 222, 128, 0.28);
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.post-content a:hover {
+  border-bottom-color: var(--green);
+}
+
+.post-content blockquote {
+  border-left: 2px solid var(--green);
+  background: rgba(74, 222, 128, 0.045);
+  color: var(--tx-dim);
+  padding: 1rem 1.4rem;
+  margin: 2rem 0;
+}
+
+.post-content code {
+  font-family: var(--f-mono);
+  font-size: 0.86em;
+  background: rgba(255, 255, 255, 0.055);
+  color: #a8e6c0;
+  padding: 0.15em 0.42em;
+  border-radius: 3px;
+}
+
+.post-content pre {
+  background: #0c0f11 !important;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+}
+
+.post-content pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.post-content hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 3rem 0;
+}
+
+.post-meta, .post-metas {
+  font-family: var(--f-mono);
+  color: #565d66;
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   页脚
+   ============================================================ */
+footer {
+  background: transparent !important;
+  border-top: 1px solid var(--line-soft);
+  margin-top: 5rem;
+  padding: 2.4rem 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: #4a5158 !important;
+}
+
+footer a {
+  color: #6a717a !important;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--green) !important;
+}
+
+/* ============================================================
+   滚动条
+   ============================================================ */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: #22272d; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #333a42; }
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width: 991px) {
+  #banner .hero-video {
+    display: none;
+  }
+
+  #banner .mask {
+    justify-content: center !important;
+    padding-right: 0;
+  }
+
+  #banner .banner-text {
+    text-align: center !important;
+    max-width: 88%;
+  }
+
+  #banner {
+    background-position: 46% center !important;
+  }
+
+  #board {
+    padding-top: 2.5rem;
+  }
+
+  .index-info {
+    padding: 2rem 0 !important;
+  }
+
+  .index-header {
+    font-size: 1.22rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #banner .hero-video {
+    display: none;
+  }
+}
