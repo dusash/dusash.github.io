@@ -76,12 +76,32 @@ post:
 
 page:
   banner_img: /img/hero-poster.jpg
-  banner_img_height: 36
+  banner_img_height: 28
+  banner_mask_alpha: 0.55
+
+archive:
+  banner_img: /img/hero-poster.jpg
+  banner_img_height: 28
+  banner_mask_alpha: 0.55
+
+category:
+  enable: true
+  banner_img: /img/hero-poster.jpg
+  banner_img_height: 28
+  banner_mask_alpha: 0.55
+
+tag:
+  enable: true
+  banner_img: /img/hero-poster.jpg
+  banner_img_height: 28
   banner_mask_alpha: 0.55
 
 # ---------- 关于页 ----------
 about:
   enable: true
+  banner_img: /img/hero-poster.jpg
+  banner_img_height: 28
+  banner_mask_alpha: 0.55
   name: "dusash"
   intro: "长江大学 · 正在学写代码"
   icons:

@@ -127,6 +127,11 @@ body:has(.index-card) #banner .banner-text .h2 {
   opacity: 1;
 }
 
+/* 归档 / 分类 / 标签 / 关于等内页：横幅上不再重复一遍页面名 */
+body:not(:has(.index-card)):not(:has(.post-content)) #banner .banner-text {
+  display: none;
+}
+
 /* 文章页 banner 文字 */
 #banner .banner-text .h1,
 #banner .banner-text .post-metas,
