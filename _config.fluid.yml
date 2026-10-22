@@ -100,7 +100,7 @@ tag:
 about:
   enable: true
   banner_img: /img/hero-poster.jpg
-  banner_img_height: 100
+  banner_img_height: 40
   banner_mask_alpha: 0.55
   avatar: /img/avatar.png
   name: "dusash"

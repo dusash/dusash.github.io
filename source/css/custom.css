@@ -434,16 +434,15 @@ body:not(:has(.index-card)):not(:has(.post-content)) #banner .banner-text {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 18px 50px rgba(0, 0, 0, 0.6);
 }
 
-/* 关于页：横幅占满一屏，头像与名字自然排在它下面 */
+/* 关于页：横幅只作背景，头像压回壁上，一屏内看完 */
 .about-avatar {
-  margin-top: 0 !important;
+  margin-top: -7rem !important;
 }
 
 .about-info {
   position: relative;
   z-index: 3;
   transform: none !important;
-  margin-top: 3.4rem !important;
   padding-top: 0 !important;
 }
 
@@ -523,6 +522,19 @@ article.about-content {
   height: 18px;
   fill: currentColor;
   display: block;
+}
+
+/* 内页横幅底部溶入页面背景，去掉硬边 */
+body:not(:has(.index-card)) #banner .mask::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 58%;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 6, 7, 0.85) 72%, var(--ink) 100%);
+  pointer-events: none;
 }
 
 /* ============================================================
