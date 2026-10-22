@@ -424,6 +424,92 @@ body:not(:has(.index-card)):not(:has(.post-content)) #banner .banner-text {
 }
 
 /* ============================================================
+   关于页
+   ============================================================ */
+.about-avatar img,
+.about-avatar {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 18px 50px rgba(0, 0, 0, 0.65);
+}
+
+.about-avatar img {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-name {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.about-intro {
+  color: var(--tx-dim) !important;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+}
+
+article.about-content {
+  width: 660px !important;
+  max-width: 92% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border: 0 !important;
+  border-left: 0 !important;
+}
+
+/* 清掉正文容器与所有段落的左边线，标题线单独加 */
+.about-content .markdown-body {
+  border: 0 !important;
+  border-left: 0 !important;
+}
+
+.about-content .markdown-body * {
+  border-left: none !important;
+}
+
+/* 第一句用大字，当作整页的调子 */
+.about-content .markdown-body > p:first-child {
+  font-size: 1.3rem;
+  line-height: 1.65;
+  color: var(--tx-hi);
+  letter-spacing: 0.005em;
+  margin-bottom: 2.4rem;
+  background: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* 首段主题会加一条前置装饰线，去掉 */
+.about-content .markdown-body > p:first-child::before,
+.about-content .markdown-body > p:first-child::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+}
+
+/* 小标题：绿色竖线 */
+.about-content .markdown-body h3 {
+  display: inline-block;
+  position: relative;
+  padding-left: 0.95rem !important;
+  border-left: 2px solid var(--green) !important;
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--tx-hi);
+  margin-top: 2.4rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.about-content p {
+  color: var(--tx);
+  line-height: 1.95;
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
    文章正文
    ============================================================ */
 .post-content, .markdown-body {
