@@ -102,10 +102,10 @@ about:
   banner_img: /img/hero-poster.jpg
   banner_img_height: 28
   banner_mask_alpha: 0.55
+  avatar: /img/avatar.png
   name: "dusash"
-  intro: "长江大学 · 正在学写代码"
-  icons:
-    - { class: "iconfont icon-github-fill", link: "https://github.com/dusash", tip: "GitHub" }
+  intro: "Yangtze University"
+  icons: []
 
 # ---------- 自定义资源 ----------
 custom_css: /css/custom.css

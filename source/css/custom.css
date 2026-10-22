@@ -424,6 +424,95 @@ body:not(:has(.index-card)):not(:has(.post-content)) #banner .banner-text {
 }
 
 /* ============================================================
+   关于页
+   ============================================================ */
+.about-avatar img {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 18px 50px rgba(0, 0, 0, 0.6);
+}
+
+.about-name {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-top: 1rem !important;
+}
+
+.about-intro {
+  color: var(--tx-dim) !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  margin-top: 0.35rem !important;
+}
+
+article.about-content {
+  width: 620px !important;
+  max-width: 92% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 1.6rem !important;
+  border: 0 !important;
+}
+
+.about-content .markdown-body,
+.about-content .markdown-body * {
+  border-left: 0 !important;
+}
+
+.about-content .markdown-body p {
+  font-size: 1.16rem;
+  line-height: 1.85;
+  color: var(--tx);
+  letter-spacing: 0.005em;
+  margin-bottom: 0.9rem;
+}
+
+.about-content .markdown-body p:first-child {
+  color: var(--tx-hi);
+}
+
+.about-content .markdown-body em {
+  color: var(--tx-hi);
+  font-style: italic;
+}
+
+/* 三个平台图标，排在文案下方 */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 2.4rem;
+}
+
+.social-links a {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tx-dim);
+  text-decoration: none !important;
+  transition: color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+
+.social-links a:hover {
+  color: var(--green);
+  border-color: rgba(74, 222, 128, 0.42);
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+}
+
+/* ============================================================
    文章正文
    ============================================================ */
 .post-content, .markdown-body {
