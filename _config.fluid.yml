@@ -1,5 +1,5 @@
 # ==============================================
-# Fluid 主题配置（wallpaper 分支）
+# Fluid 主题配置
 # 只写「和主题默认值不一样」的部分，其余沿用默认。
 # 完整默认值：node_modules/hexo-theme-fluid/_config.yml
 # ==============================================
@@ -19,50 +19,55 @@ dark_mode:
   enable: true
   default: dark
 
-# ---------- 配色：取自壁纸（墨黑 / 门框绿 / 门内红） ----------
+# ---------- 配色：墨黑 / 鼠尾草绿 / 暖白 ----------
 color:
-  body_bg_color: "#050607"
-  body_bg_color_dark: "#050607"
-  navbar_bg_color: "#050607"
-  navbar_bg_color_dark: "#050607"
-  navbar_text_color: "#e8eaed"
-  navbar_text_color_dark: "#e8eaed"
-  subtitle_color: "#9aa3ab"
-  subtitle_color_dark: "#9aa3ab"
-  text_color: "#c6ccd4"
-  text_color_dark: "#c6ccd4"
-  sec_text_color: "#767d85"
-  sec_text_color_dark: "#767d85"
-  board_color: "#0a0c0d"
-  board_color_dark: "#0a0c0d"
-  post_text_color: "#c6ccd4"
-  post_text_color_dark: "#c6ccd4"
-  post_heading_color: "#e8eaed"
-  post_heading_color_dark: "#e8eaed"
-  post_link_color: "#4ade80"
-  post_link_color_dark: "#4ade80"
-  link_hover_color: "#86efac"
-  link_hover_color_dark: "#86efac"
-  link_hover_bg_color: "rgba(74,222,128,0.08)"
-  link_hover_bg_color_dark: "rgba(74,222,128,0.08)"
-  line_color: "rgba(255,255,255,0.08)"
-  line_color_dark: "rgba(255,255,255,0.08)"
-  scrollbar_color: "#262b31"
-  scrollbar_color_dark: "#262b31"
-  scrollbar_hover_color: "#3a4149"
-  scrollbar_hover_color_dark: "#3a4149"
+  body_bg_color: "#080a09"
+  body_bg_color_dark: "#080a09"
+  navbar_bg_color: "#080a09"
+  navbar_bg_color_dark: "#080a09"
+  navbar_text_color: "#f0f2eb"
+  navbar_text_color_dark: "#f0f2eb"
+  subtitle_color: "#c8d0c7"
+  subtitle_color_dark: "#c8d0c7"
+  text_color: "#c8d0c7"
+  text_color_dark: "#c8d0c7"
+  sec_text_color: "#939e94"
+  sec_text_color_dark: "#939e94"
+  board_color: "#111611"
+  board_color_dark: "#111611"
+  post_text_color: "#c8d0c7"
+  post_text_color_dark: "#c8d0c7"
+  post_heading_color: "#f0f2eb"
+  post_heading_color_dark: "#f0f2eb"
+  post_link_color: "#9fc9a8"
+  post_link_color_dark: "#9fc9a8"
+  link_hover_color: "#c0e4c7"
+  link_hover_color_dark: "#c0e4c7"
+  link_hover_bg_color: "rgba(159,201,168,0.09)"
+  link_hover_bg_color_dark: "rgba(159,201,168,0.09)"
+  line_color: "rgba(224,235,222,0.12)"
+  line_color_dark: "rgba(224,235,222,0.12)"
+  scrollbar_color: "#29322b"
+  scrollbar_color_dark: "#29322b"
+  scrollbar_hover_color: "#435047"
+  scrollbar_hover_color_dark: "#435047"
   button_bg_color: "transparent"
   button_bg_color_dark: "transparent"
-  button_hover_bg_color: "rgba(255,255,255,0.06)"
-  button_hover_bg_color_dark: "rgba(255,255,255,0.06)"
+  button_hover_bg_color: "rgba(159,201,168,0.09)"
+  button_hover_bg_color_dark: "rgba(159,201,168,0.09)"
 
 # ---------- 首页 ----------
 banner:
   parallax: false
 
+# 关闭主题打字插件，由自定义脚本提供可减少动态效果的轻量版本。
+fun_features:
+  typing:
+    enable: false
+
 index:
   banner_img: /img/hero-poster.jpg
-  banner_img_height: 100
+  banner_img_height: 94
   banner_mask_alpha: 0
   slogan:
     enable: true
@@ -71,36 +76,36 @@ index:
 # ---------- 文章页 / 普通页 ----------
 post:
   banner_img: /img/hero-poster.jpg
-  banner_img_height: 46
+  banner_img_height: 58
   banner_mask_alpha: 0.55
 
 page:
   banner_img: /img/hero-poster.jpg
-  banner_img_height: 100
+  banner_img_height: 54
   banner_mask_alpha: 0.55
 
 archive:
   banner_img: /img/hero-poster.jpg
-  banner_img_height: 100
+  banner_img_height: 54
   banner_mask_alpha: 0.55
 
 category:
   enable: true
   banner_img: /img/hero-poster.jpg
-  banner_img_height: 100
+  banner_img_height: 54
   banner_mask_alpha: 0.55
 
 tag:
   enable: true
   banner_img: /img/hero-poster.jpg
-  banner_img_height: 100
+  banner_img_height: 54
   banner_mask_alpha: 0.55
 
 # ---------- 关于页 ----------
 about:
   enable: true
   banner_img: /img/hero-poster.jpg
-  banner_img_height: 40
+  banner_img_height: 52
   banner_mask_alpha: 0.55
   avatar: /img/avatar.png
   name: "dusash"
