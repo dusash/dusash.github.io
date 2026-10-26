@@ -13,6 +13,7 @@ navbar:
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
+    - { key: "workbench", name: "工作台", link: "/workbench/", icon: "iconfont icon-app-fill" }
 
 # ---------- 明暗：固定深色，切换按钮已在 CSS 里隐藏 ----------
 dark_mode:
